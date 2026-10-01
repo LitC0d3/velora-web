@@ -1,0 +1,162 @@
+{
+  "project_info": {
+    "name": "Velora Landing Page",
+    "type": "landing_page",
+    "theme": "Dark Velvet & Neon Violet (Tasteful 18+ Adult Content & Creator Platform)",
+    "target_audience": "Discerning adult content consumers, independent premium creators, mobile power users seeking ad-free high bitrate 4K content.",
+    "emotional_archetype": "Luxury & Moody Tech (Archetype 5 - Deep Obsidian, Amethyst Glow, Gold Accents, Sensual Sophistication)"
+  },
+  "typography": {
+    "heading_font": "Syne, sans-serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "font_pairs_import": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap",
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-tight",
+      "subtitle": "text-lg sm:text-xl text-purple-200/70 font-normal leading-relaxed",
+      "body": "text-base text-slate-300 leading-relaxed",
+      "caption": "text-xs tracking-wider uppercase font-mono text-purple-400/80"
+    }
+  },
+  "colors": {
+    "background_primary": "#08050D",
+    "background_secondary": "#100B1A",
+    "background_card": "#160F24",
+    "background_card_glass": "rgba(22, 15, 36, 0.75)",
+    "accent_primary_violet": "#8B5CF6",
+    "accent_deep_purple": "#6D28D9",
+    "accent_neon_magenta": "#EC4899",
+    "accent_gold_premium": "#F59E0B",
+    "border_subtle": "rgba(139, 92, 246, 0.18)",
+    "border_glowing": "rgba(236, 72, 153, 0.4)",
+    "text_primary": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "text_purple_bright": "#C084FC",
+    "badge_18_plus": "#EF4444"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-purple-950/40 border border-purple-500/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+    "glow_effect": "shadow-[0_0_40px_-5px_rgba(139,92,246,0.3)]",
+    "gradient_hero_button": "bg-gradient-to-r from-purple-600 via-violet-600 to-pink-600 hover:from-purple-500 hover:via-violet-500 hover:to-pink-500 shadow-lg shadow-purple-900/40",
+    "gradient_text": "bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-pink-400",
+    "gradient_premium_badge": "bg-gradient-to-r from-amber-500 to-purple-600 text-white font-bold"
+  },
+  "bilingual_support": {
+    "languages": ["EN", "ES"],
+    "default_language": "EN",
+    "toggle_component": "Header top-right interactive language pills switch (EN | ES) storing preference in state/localStorage",
+    "translations_map": {
+      "nav": {
+        "features": {"EN": "Features", "ES": "Funciones"},
+        "reels": {"EN": "Shorts", "ES": "Videos Cortos"},
+        "creator": {"EN": "Become a Creator", "ES": "Sé Creador"},
+        "premium": {"EN": "Velora Pass ($9.99)", "ES": "Pase Velora ($9.99)"},
+        "roadmap": {"EN": "Roadmap", "ES": "Hoja de Ruta"},
+        "download_apk": {"EN": "Download APK", "ES": "Descargar APK"}
+      },
+      "hero": {
+        "badge_age": "18+ ADULT ENTERTAINMENT PLATFORM",
+        "title": {"EN": "Uncensored Passion. Unmatched 4K Quality.", "ES": "Pasión Sin Censura. Calidad 4K Inigualable."},
+        "subtitle": {"EN": "Experience high-definition ad-free streaming, offline downloads, direct creator interactions, and exclusive short-form content in one discreet app.", "ES": "Disfruta de streaming en alta definición sin anuncios, descargas offline, interacción directa con creadores y contenido corto exclusivo en una app discreta."},
+        "cta_apk": {"EN": "Download Velora APK (v2.4.0)", "ES": "Descargar Velora APK (v2.4.0)"},
+        "meta_apk": {"EN": "Android 8.0+ • 48.2 MB • Verified Malware-Free", "ES": "Android 8.0+ • 48.2 MB • Verificado Libre de Malware"}
+      },
+      "features": {
+        "ad_free": {"title": {"EN": "100% Ad-Free Experience", "ES": "Experiencia 100% Sin Anuncios"}, "desc": {"EN": "Zero popups, zero banners. Pure continuous high-bitrate playback.", "ES": "Cero anuncios y ventanas emergentes. Reproducción fluida y pura."}},
+        "offline": {"title": {"EN": "Offline Content Downloading", "ES": "Descarga de Contenido Offline"}, "desc": {"EN": "Save your favorite scenes and short videos straight to your device securely.", "ES": "Guarda tus escenas favoritas directamente en tu dispositivo con seguridad."}},
+        "creator_hub": {"title": {"EN": "Become a Creator & Monetize", "ES": "Hazte Creador y Monetiza"}, "desc": {"EN": "Upload your own content, build a loyal fanbase, and keep 85%+ of earnings.", "ES": "Sube tu propio contenido, crea tu comunidad y conserva más del 85% de tus ganancias."}},
+        "short_reels": {"title": {"EN": "Velora Reels & Short-Form Video", "ES": "Velora Reels y Video Corto"}, "desc": {"EN": "Algorithmic infinite scroll short-form feeds tailored to your desires.", "ES": "Feed infinito de videos cortos adaptado a tus gustos y preferencias."}}
+      },
+      "premium": {
+        "badge": {"EN": "VIP PASS • $9.99 ONE-TIME / MONTHLY", "ES": "PASE VIP • $9.99 PAGO ÚNICO / MENSUAL"},
+        "title": {"EN": "Velora Premium Access", "ES": "Acceso Velora Premium"},
+        "perk_4k": {"EN": "4K Ultra HD Streaming & Master Audio", "ES": "Streaming 4K Ultra HD y Audio Master"},
+        "perk_exclusive": {"EN": "Exclusive Premium-Only Content & Vaults", "ES": "Bóvedas y Contenido Exclusivo Solo Premium"},
+        "perk_badge": {"EN": "Gold Community Badge in All Chats", "ES": "Insignia Dorada de Comunidad en Chats"},
+        "perk_perks": {"EN": "Priority Bandwidth & Early Access Drops", "ES": "Ancho de Banda Prioritario y Estrenos Anticipados"}
+      },
+      "roadmap": {
+        "title": {"EN": "Upcoming Features & Roadmap", "ES": "Próximas Funciones y Hoja de Ruta"}, "private_chat": {"title": {"EN": "Private 1-on-1 Creator Chats", "ES": "Chats Privados 1 a 1 con Creadores"}, "desc": {"EN": "Exclusive direct messaging and custom requests for Premium members.", "ES": "Mensajería directa exclusiva y pedidos personalizados para miembros Premium."}},
+        "auto_update": {"title": {"EN": "Background In-App Updates", "ES": "Actualizaciones Automáticas en App"}, "desc": {"EN": "Seamless background updates without manual APK reinstalls.", "ES": "Actualizaciones en segundo plano sin reinstalación manual de APK."}},
+        "reporting": {"title": {"EN": "Safety & Content Reporting System", "ES": "Sistema de Seguridad y Reportes"}, "desc": {"EN": "Proactive moderation protecting creator rights and user privacy.", "ES": "Moderación proactiva que protege derechos de creadores y privacidad."}},
+        "chat_community": {"title": {"EN": "Live Interactive Community Chat", "ES": "Chat en Vivo de la Comunidad"}, "desc": {"EN": "Real-time room commentary and live event interaction.", "ES": "Comentarios en vivo en salas y eventos interactivos."}}
+      }
+    }
+  },
+  "key_components": [
+    {
+      "name": "Header / Navbar",
+      "description": "Sticky frosted glass header with glowing Velora 'V' logo, quick anchor navigation links, ES/EN toggle switch, and primary 'Get APK' CTA button.",
+      "testid": "header-navbar"
+    },
+    {
+      "name": "Hero Section",
+      "description": "Cinematic dark section with ambient violet glow, 18+ discretion badge, high-impact headline, main download APK CTA button with size/version stats, and interactive installation guide trigger.",
+      "testid": "hero-section"
+    },
+    {
+      "name": "App Showcase Mockup",
+      "description": "Interactive mobile mockup showing Velora's dark purple UI interface, short video reel player simulator, and ad-free playback indicator.",
+      "testid": "app-showcase-mockup"
+    },
+    {
+      "name": "Features Grid (Bento Style)",
+      "description": "Asymmetric Bento grid showcasing Ad-Free mode, Offline Downloads, Creator Upload Portal, and Velora Short-Form Reels with custom glowing icons.",
+      "testid": "features-bento-grid"
+    },
+    {
+      "name": "Velora Premium VIP ($9.99) Spotlight",
+      "description": "High-contrast card with golden border accent, listing 4K resolution streams, exclusive Vault content, Community Gold Badge preview, and direct VIP upgrade details.",
+      "testid": "premium-vip-section"
+    },
+    {
+      "name": "Roadmap & Future Feature Radar",
+      "description": "Timeline displaying upcoming releases: Private Creator Chats, Automatic In-App Updates, Moderation Safety System, and Live Community Rooms.",
+      "testid": "roadmap-timeline-section"
+    },
+    {
+      "name": "APK Download Drawer / Installation Guide Modal",
+      "description": "Detailed modal/drawer triggered by download button providing direct APK download link, SHA256 integrity hash, and step-by-step Android unknown sources installation instructions.",
+      "testid": "apk-download-modal"
+    },
+    {
+      "name": "Age Verification & Discretion Footer",
+      "description": "Tasteful dark footer with 18+ age requirement notice, privacy discretion guarantee, copyright, and direct download links.",
+      "testid": "footer-discretion"
+    }
+  ],
+  "image_urls": {
+    "hero_mood": {
+      "url": "https://images.unsplash.com/photo-1584359018585-82fb9b6b710d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHw0fHxzZW5zdWFsJTIwbW9vZHklMjBkYXJrJTIwcG9ydHJhaXQlMjBuZW9uJTIwcHVycGxlJTIwbGlnaHR8ZW58MHx8fHwxNzkwODY3ODQwfDA&ixlib=rb-4.1.0&q=85",
+      "category": "Hero Background / Moody Neon Portrait",
+      "alt": "Velora cinematic neon purple dark portrait"
+    },
+    "creator_portrait_1": {
+      "url": "https://images.unsplash.com/photo-1613698808499-f772ccb4f527?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwzfHxzZW5zdWFsJTIwbW9vZHklMjBkYXJrJTIwcG9ydHJhaXQlMjBuZW9uJTIwcHVycGxlJTIwbGlnaHR8ZW58MHx8fHwxNzkwODY3ODQwfDA&ixlib=rb-4.1.0&q=85",
+      "category": "Creator Spotlight",
+      "alt": "Velora Top Creator Portrait with purple lighting"
+    },
+    "creator_portrait_2": {
+      "url": "https://images.unsplash.com/photo-1644353224392-7e532d7b8f4b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwyfHxzZW5zdWFsJTIwbW9vZHklMjBkYXJrJTIwcG9ydHJhaXQlMjBuZW9uJTIwcHVycGxlJTIwbGlnaHR8ZW58MHx8fHwxNzkwODY3ODQwfDA&ixlib=rb-4.1.0&q=85",
+      "category": "Creator Hub Partner",
+      "alt": "Male Creator in purple studio setting"
+    },
+    "studio_camera": {
+      "url": "https://images.unsplash.com/photo-1781107913585-a2a9b09ed501?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkYXJrJTIwc3R1ZGlvJTIwY2FtZXJhJTIwY3JlYXRvcnxlbnwwfHx8fDE3OTA4Njc4NDh8MA&ixlib=rb-4.1.0&q=85",
+      "category": "High Bitrate 4K Production Studio",
+      "alt": "4K Cinema Camera in dark studio"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Build the complete application inside `/app/frontend/src/App.js` and associated components.",
+    "Ensure dark purple theme matches user preference: #08050D primary background, glowing violet (#8B5CF6) accents, dark purple card panels (#160F24).",
+    "Implement the bilingual ES/EN language switcher in header/hero that seamlessly re-renders all headings, subheadings, badges, feature titles, and download buttons.",
+    "Implement a real APK download mechanism (serves a dummy file `/velora-app-v2.4.0.apk` or triggers synthetic browser download with file blob and triggers installation instruction drawer).",
+    "Include a tasteful 18+ age verification banner/modal or warning tag to satisfy adult positioning with high sophistication.",
+    "Ensure all buttons, tabs, links, modals, language toggles, and key text blocks include data-testid attributes for automated testing.",
+    "Use Framer Motion for scroll entrance animations, bento card hover glows, and mobile screen tabs.",
+    "Do NOT use transparent backgrounds without backdrop-blur filters for headers or sticky elements."
+  ]
+}
