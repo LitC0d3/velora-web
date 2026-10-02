@@ -1,7 +1,7 @@
 {
-  "available": false,
-  "version": "2.4.0",
-  "size_bytes": 0,
-  "sha256": "",
-  "url": "apk/velora.apk"
+  "available": true,
+  "version": "0.10.0",
+  "size_bytes": 25624487,
+  "sha256": "6e68b641045daefacf068f5fd54010175af003ff7ab5116f7b7db6e9320a2990",
+  "url": "https://xwsghmvyuzojnpmpvrya.supabase.co/storage/v1/object/public/updates/velora_v0.10.0.apk"
 }

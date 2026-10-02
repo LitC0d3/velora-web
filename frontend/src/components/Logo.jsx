@@ -1,6 +1,6 @@
 export const VeloraMark = ({ size = 36 }) => (
   <img
-    src="/velora-logo.png"
+    src={`${process.env.PUBLIC_URL}/velora-logo.png`}
     width={size}
     height={size}
     alt="Velora"
