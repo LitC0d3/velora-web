@@ -35,13 +35,19 @@ Create a landing page for the adult-oriented (18+) app "Velora". Page must featu
 - curl: /api/ 200, /api/download/status 200 (available:false until upload), /api/download/apk 404 (by design, no APK yet)
 - Playwright screenshots: age gate, hero, features, premium, roadmap, modal, ES toggle, 375/768/1366 layouts
 
+## Implemented (2026-10-02) — Mockup fix + longer page
+- Fixed phone mockup cropping: new shared `PhoneFrame.jsx` sizes the frame to the real screenshot ratio (800x1280 = 5:8) with object-contain; hero phones now visible on all breakpoints (side phone hidden <sm)
+- New bilingual sections (components + EN/ES dictionaries in i18n.js): Stats band, "Inside the app" screens gallery (uses both user screenshots) + 6-tab nav strip, How it works (3 steps), Creator hub (85% payout), Free vs Premium comparison table (9 rows), Safety & Privacy (6 items), FAQ accordion (6 Qs), Final CTA banner
+- Shared `SectionHead.jsx`; Navbar + Footer gained FAQ link; Creators nav link → #creator-hub
+- Page height now ~10,800px (was ~4,500px). Tested by testing agent: /app/test_reports/iteration_1.json (100% pass, 375/768/1920)
+
 ## Backlog
 - P0: User uploads real velora.apk → downloads go live automatically (no code change needed)
 - P1: Update APP_VERSION in backend/.env when releasing new builds
-- P1: FAQ section (install troubleshooting, premium terms)
 - P2: Legal pages (Terms, Privacy, 2257-style compliance statement)
 - P2: OG/social share meta images
 - P2: Analytics + download counter (MongoDB available via env if wanted)
+- P2: Split i18n.js into en.js / es.js (528 lines)
 
 ## Test Credentials
 No authentication in this app. See /app/memory/test_credentials.md.
