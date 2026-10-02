@@ -3,7 +3,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, FileDown, CheckCircle2, Hourglass } from "lucide-react";
 import { useLang } from "../i18n";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Static manifest served from /public — no backend needed (GitHub Pages friendly).
+// Regenerate it with: node scripts/release-apk.js <path/to/velora.apk> [--url <download-url>]
+const MANIFEST_URL = `${process.env.PUBLIC_URL}/apk/release.json`;
+
+const resolveDownloadUrl = (url) =>
+  /^https?:\/\//.test(url) ? url : `${process.env.PUBLIC_URL}/${url.replace(/^\.?\//, "")}`;
 
 export const DownloadModal = ({ open, onClose }) => {
   const { t } = useLang();
@@ -13,8 +18,8 @@ export const DownloadModal = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) return;
     setStatus(null);
-    fetch(`${API}/download/status`)
-      .then((r) => r.json())
+    fetch(`${MANIFEST_URL}?t=${Date.now()}`)
+      .then((r) => (r.ok ? r.json() : { available: false }))
       .then(setStatus)
       .catch(() => setStatus({ available: false }));
   }, [open]);
@@ -74,7 +79,8 @@ export const DownloadModal = ({ open, onClose }) => {
                   </p>
                   <a
                     data-testid="modal-download-link"
-                    href={`${API}/download/apk`}
+                    href={resolveDownloadUrl(status.url || "apk/velora.apk")}
+                    download
                     className="mt-5 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-pink-600 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-900/50 hover:from-purple-500 hover:via-violet-500 hover:to-pink-500 transition-all duration-300 hover:scale-[1.02] active:scale-95"
                   >
                     <FileDown size={16} /> {m.download}

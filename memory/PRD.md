@@ -42,9 +42,19 @@ Create a landing page for the adult-oriented (18+) app "Velora". Page must featu
 - Brand mark replaced with the user's original Velora logo (/frontend/public/velora-logo.png, cropped from upload); `VeloraMark` now renders it everywhere (navbar, footer, age gate, CTA); favicon.png updated
 - Page height now ~10,800px (was ~4,500px). Tested by testing agent: /app/test_reports/iteration_1.json (100% pass, 375/768/1920)
 
+## Implemented (2026-10-02) — GitHub Pages (static hosting, zero cost)
+- User has no hosting budget → landing made fully static. Backend is NO LONGER used by the frontend (kept only for the preview env; may be deleted).
+- `DownloadModal.jsx` now fetches `${PUBLIC_URL}/apk/release.json` (static manifest: available, version, size_bytes, sha256, url). Download link = manifest `url` (relative to site or absolute e.g. GitHub Releases).
+- `frontend/scripts/release-apk.js <apk> [--version] [--url]`: computes size/SHA-256, copies APK to `public/apk/velora.apk` (if <100MB and no --url) and writes release.json.
+- `package.json` `"homepage": "."` → relative asset paths, works at `user.github.io/repo/` and custom domains. `public/.nojekyll` added.
+- `.github/workflows/deploy-pages.yml`: on push to main → yarn build (CI=false, DISABLE_EMERGENT_OVERLAY=true) → deploy to GitHub Pages (Source must be "GitHub Actions").
+- Spanish step-by-step guide: `/app/DEPLOY_GITHUB_PAGES.md`.
+- Verified: production build served from a subpath (`/velora-repo/`) loads, modal shows version/size/SHA from manifest and href `./apk/velora.apk`.
+- Logo fix (inner color) was already done in a prior commit (91ae596) — verified image is intact.
+
 ## Backlog
-- P0: User uploads real velora.apk → downloads go live automatically (no code change needed)
-- P1: Update APP_VERSION in backend/.env when releasing new builds
+- P0: User runs `node scripts/release-apk.js` with the real APK (or GitHub Releases URL) and pushes → downloads go live
+- P1: Optionally delete `backend/` once published on GitHub Pages
 - P2: Legal pages (Terms, Privacy, 2257-style compliance statement)
 - P2: OG/social share meta images
 - P2: Analytics + download counter (MongoDB available via env if wanted)
