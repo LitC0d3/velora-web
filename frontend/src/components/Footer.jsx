@@ -4,7 +4,7 @@ import { VeloraMark, Wordmark } from "./Logo";
 
 export const Footer = ({ onDownload }) => {
   const { t } = useLang();
-  const anchors = ["#features", "#premium", "#roadmap"];
+  const anchors = ["#features", "#premium", "#roadmap", "#faq"];
   return (
     <footer data-testid="footer-discretion" className="relative py-16 border-t border-purple-500/10">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">

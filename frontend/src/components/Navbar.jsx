@@ -5,9 +5,10 @@ import { VeloraMark, Wordmark } from "./Logo";
 
 const links = [
   { key: "features", href: "#features" },
-  { key: "creator", href: "#creator" },
+  { key: "creator", href: "#creator-hub" },
   { key: "premium", href: "#premium" },
   { key: "roadmap", href: "#roadmap" },
+  { key: "faq", href: "#faq" },
 ];
 
 export const Navbar = ({ onDownload }) => {

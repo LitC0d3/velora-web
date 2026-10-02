@@ -8,6 +8,14 @@ import { Marquee } from "./components/Marquee";
 import { Features } from "./components/Features";
 import { Premium } from "./components/Premium";
 import { Roadmap } from "./components/Roadmap";
+import { Stats } from "./components/Stats";
+import { Screens } from "./components/Screens";
+import { HowItWorks } from "./components/HowItWorks";
+import { CreatorHub } from "./components/CreatorHub";
+import { Compare } from "./components/Compare";
+import { Safety } from "./components/Safety";
+import { FAQ } from "./components/FAQ";
+import { FinalCTA } from "./components/FinalCTA";
 import { DownloadModal } from "./components/DownloadModal";
 import { Footer } from "./components/Footer";
 
@@ -48,9 +56,17 @@ function App() {
         <main>
           <Hero intro={ageOk} onDownload={() => setDownloadOpen(true)} />
           <Marquee />
+          <Stats />
           <Features />
+          <Screens />
+          <HowItWorks onDownload={() => setDownloadOpen(true)} />
+          <CreatorHub />
           <Premium />
+          <Compare onDownload={() => setDownloadOpen(true)} />
+          <Safety />
           <Roadmap />
+          <FAQ />
+          <FinalCTA onDownload={() => setDownloadOpen(true)} />
         </main>
         <Footer onDownload={() => setDownloadOpen(true)} />
         <DownloadModal open={downloadOpen} onClose={() => setDownloadOpen(false)} />
