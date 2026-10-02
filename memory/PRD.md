@@ -57,6 +57,14 @@ Create a landing page for the adult-oriented (18+) app "Velora". Page must featu
 - `public/apk/release.json` points to the user's real APK: Supabase URL `.../updates/velora_v0.11.0.apk`, v0.11.0, SHA-256 computed. Hero badge version updated to v0.11.0 (i18n.js EN/ES).
 - Live site: https://litc0d3.github.io/velora-web/ (repo LitC0d3/velora-web). Workflow no longer uses yarn cache / frozen-lockfile (yarn.lock not committed).
 
+## Implemented (2026-10-02) — Visual upgrade ("feels too simple" → premium/cinematic/interactive)
+- Design blueprint: /app/design_guidelines.json (design agent). Kept logo, purple palette, screenshots.
+- New FX primitives: `components/fx/SpotlightCard.jsx` (cursor-following glow + gradient border, optional 3D tilt), `components/fx/CountUp.jsx`; CSS utilities in index.css: `.spot`, `.border-beam(-gold)` (rotating conic border), `.aurora(-gold)`, `.grid-lines`, `.shine`, `.gold-shimmer`, `.text-outline`, `.dot-ping`, `.sheen`, reduced-motion fallbacks. `SectionHead` now does word-by-word masked reveal + animated eyebrow rule.
+- Sections: Navbar (scroll progress bar, link underline, logo glow) · Hero (aurora, grid, 3 floating i18n chips, dashed orbit ring, shine CTA) · Marquee (2 rows, reverse outlined row, edge fade) · Stats (huge count-up numerals, accent rails) · Features (asymmetric bento 4/2-4/2-3/3 with spotlight, EQ bars, download progress bars) · Premium (gold aurora, beam border image, shimmer price, perk pills, floating HDR/4K chips) · Roadmap (connected timeline w/ glowing nodes, tilt cards) · Screens (tabbed gallery switching phone w/ AnimatePresence, app dock) · HowItWorks (scroll-linked progress rail + sticky "installer console") · CreatorHub (glass 85% stat w/ bar, beam border) · Compare (elevated gold Premium column + MOST POPULAR badge, lock icons) · Safety (radar rings, sticky shield, staggered grid) · FAQ (numbered, accent bar) · FinalCTA (rotating conic aurora, beam border) · Footer (giant outlined VELORA watermark).
+- i18n additions: `hero.chips[]`, `compare.popular` (EN/ES).
+- Gotcha fixed: `.border-beam` must NOT set `position:relative` (it overrode Tailwind `absolute`).
+- Tested: /app/test_reports/iteration_2.json — 15/15 pass at 1920/768/375, no horizontal overflow, 0 console errors. Production build OK.
+
 ## Backlog
 - P1: Optionally delete `backend/` once published on GitHub Pages
 - P2: Legal pages (Terms, Privacy, 2257-style compliance statement)
