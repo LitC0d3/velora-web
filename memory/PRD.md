@@ -39,6 +39,7 @@ Create a landing page for the adult-oriented (18+) app "Velora". Page must featu
 - Fixed phone mockup cropping: new shared `PhoneFrame.jsx` sizes the frame to the real screenshot ratio (800x1280 = 5:8) with object-contain; hero phones now visible on all breakpoints (side phone hidden <sm)
 - New bilingual sections (components + EN/ES dictionaries in i18n.js): Stats band, "Inside the app" screens gallery (uses both user screenshots) + 6-tab nav strip, How it works (3 steps), Creator hub (85% payout), Free vs Premium comparison table (9 rows), Safety & Privacy (6 items), FAQ accordion (6 Qs), Final CTA banner
 - Shared `SectionHead.jsx`; Navbar + Footer gained FAQ link; Creators nav link → #creator-hub
+- Brand mark replaced with the user's original Velora logo (/frontend/public/velora-logo.png, cropped from upload); `VeloraMark` now renders it everywhere (navbar, footer, age gate, CTA); favicon.png updated
 - Page height now ~10,800px (was ~4,500px). Tested by testing agent: /app/test_reports/iteration_1.json (100% pass, 375/768/1920)
 
 ## Backlog
