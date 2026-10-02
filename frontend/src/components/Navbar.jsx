@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Download } from "lucide-react";
 import { useLang } from "../i18n";
 import { VeloraMark, Wordmark } from "./Logo";
@@ -13,17 +13,27 @@ const links = [
 
 export const Navbar = ({ onDownload }) => {
   const { lang, setLang, t } = useLang();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
   return (
     <motion.header
       data-testid="header-navbar"
       initial={{ y: -70, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-[#08050D]/70 border-b border-purple-500/10"
+      className="fixed top-0 inset-x-0 z-50 backdrop-blur-2xl bg-[#08050D]/80 border-b border-purple-500/10"
     >
+      <motion.div
+        data-testid="scroll-progress-bar"
+        style={{ scaleX: progress }}
+        className="absolute bottom-[-1px] left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 shadow-[0_0_12px_rgba(236,72,153,0.8)]"
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-3" data-testid="nav-logo-link">
-          <VeloraMark size={32} />
+        <a href="#top" className="flex items-center gap-3 group" data-testid="nav-logo-link">
+          <span className="relative">
+            <span className="absolute inset-0 rounded-[22%] bg-purple-500/50 blur-lg opacity-60 group-hover:opacity-100 transition-opacity animate-pulse" />
+            <VeloraMark size={32} />
+          </span>
           <Wordmark className="text-sm" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
@@ -32,7 +42,7 @@ export const Navbar = ({ onDownload }) => {
               key={l.key}
               href={l.href}
               data-testid={`nav-link-${l.key}`}
-              className="text-xs font-mono tracking-[0.18em] uppercase text-slate-400 hover:text-purple-300 transition-colors duration-300"
+              className="relative text-xs font-mono tracking-[0.18em] uppercase text-slate-400 hover:text-white transition-colors duration-300 after:absolute after:left-0 after:-bottom-1.5 after:h-px after:w-0 after:bg-gradient-to-r after:from-purple-400 after:to-pink-500 after:transition-all after:duration-300 hover:after:w-full"
             >
               {t.nav[l.key]}
             </a>

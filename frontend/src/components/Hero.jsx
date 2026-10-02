@@ -24,9 +24,12 @@ export const Hero = ({ intro, onDownload }) => {
       className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16"
     >
       <div className="absolute inset-0 pointer-events-none">
+        <div className="aurora" />
+        <div className="absolute inset-0 grid-lines" />
         <div className="absolute -top-40 -left-40 w-[38rem] h-[38rem] rounded-full bg-purple-700/25 blur-[140px]" />
         <div className="absolute top-1/3 -right-48 w-[34rem] h-[34rem] rounded-full bg-pink-600/15 blur-[150px]" />
         <div className="absolute bottom-0 left-1/3 w-[30rem] h-[30rem] rounded-full bg-violet-900/30 blur-[130px]" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-16 items-center w-full">
@@ -79,7 +82,7 @@ export const Hero = ({ intro, onDownload }) => {
             <button
               data-testid="hero-download-btn"
               onClick={onDownload}
-              className="group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-pink-600 px-8 py-4 text-sm font-semibold text-white shadow-xl shadow-purple-900/50 hover:from-purple-500 hover:via-violet-500 hover:to-pink-500 transition-all duration-300 hover:scale-[1.04] active:scale-95"
+              className="shine group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-pink-600 px-8 py-4 text-sm font-semibold text-white shadow-[0_18px_50px_-12px_rgba(168,85,247,0.8)] hover:from-purple-500 hover:via-violet-500 hover:to-pink-500 transition-all duration-300 hover:scale-[1.04] active:scale-95"
             >
               <Download size={18} className="transition-transform duration-300 group-hover:translate-y-0.5" />
               {t.hero.cta}
@@ -100,12 +103,17 @@ export const Hero = ({ intro, onDownload }) => {
           style={{ perspective: 1200 }}
         >
           <div className="absolute inset-0 m-auto w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-purple-600/30 blur-[110px]" />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 m-auto w-[22rem] h-[22rem] sm:w-[26rem] sm:h-[26rem] rounded-full border border-dashed border-purple-500/15 pointer-events-none hidden sm:block"
+          />
           <motion.div style={{ rotateX, rotateY, transformStyle: "preserve-3d" }} className="relative">
             <PhoneFrame
               testid="hero-phone-main"
               src={PHONE_MAIN}
               alt="Velora app profile screen"
-              className="relative float-slow w-[240px] sm:w-[280px] lg:w-[300px] violet-ring"
+              className="sheen relative float-slow w-[240px] sm:w-[280px] lg:w-[300px] violet-ring"
             />
             <PhoneFrame
               testid="hero-phone-side"
@@ -114,6 +122,22 @@ export const Hero = ({ intro, onDownload }) => {
               className="hidden sm:block absolute -right-28 lg:-right-36 top-16 w-[170px] lg:w-[200px] !rounded-[2rem] !p-2 border-purple-400/20 opacity-90"
               style={{ transform: "translateZ(-90px) rotate(6deg)" }}
             />
+            {t.hero.chips.map((chip, i) => (
+              <motion.span
+                key={chip}
+                data-testid={`hero-chip-${i}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={intro ? { opacity: 1, scale: 1, y: [0, i % 2 ? 8 : -8, 0] } : {}}
+                transition={{ opacity: { delay: 1.3 + i * 0.15, duration: 0.5 }, scale: { delay: 1.3 + i * 0.15, duration: 0.5 }, y: { duration: 5 + i, repeat: Infinity, ease: "easeInOut" } }}
+                style={{ transform: "translateZ(60px)" }}
+                className={`absolute hidden sm:inline-flex items-center gap-2 rounded-xl border border-purple-400/30 bg-[#160F24]/90 backdrop-blur-md px-3.5 py-2 text-[10px] font-mono tracking-[0.2em] text-purple-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.9)] ${
+                  i === 0 ? "-left-24 top-10" : i === 1 ? "-left-32 bottom-28" : "right-0 lg:-right-10 -bottom-6"
+                }`}
+              >
+                <span className={`relative w-1.5 h-1.5 rounded-full dot-ping ${i === 0 ? "bg-emerald-400" : i === 1 ? "bg-pink-400" : "bg-amber-400"}`} />
+                {chip}
+              </motion.span>
+            ))}
           </motion.div>
         </motion.div>
       </div>

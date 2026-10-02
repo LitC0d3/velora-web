@@ -60,6 +60,10 @@ body {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 58s;
+}
 
 @keyframes float-slow {
   0%,
@@ -96,4 +100,218 @@ body {
 
 .violet-ring {
   box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.25), 0 0 60px -10px rgba(139, 92, 246, 0.4);
+}
+
+/* ---------- FX utilities ---------- */
+
+/* Cursor-following spotlight (coords set via --x/--y by SpotlightCard) */
+.spot {
+  --x: 50%;
+  --y: 50%;
+}
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(520px circle at var(--x) var(--y), rgba(168, 85, 247, 0.18), transparent 60%);
+  z-index: 1;
+}
+.spot:hover::before {
+  opacity: 1;
+}
+/* Gradient border that lights up where the cursor is */
+.spot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(380px circle at var(--x) var(--y), rgba(236, 72, 153, 0.9), rgba(168, 85, 247, 0.5) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 2;
+}
+.spot:hover::after {
+  opacity: 1;
+}
+.spot-gold::before {
+  background: radial-gradient(520px circle at var(--x) var(--y), rgba(245, 158, 11, 0.16), transparent 60%);
+}
+.spot-gold::after {
+  background: radial-gradient(380px circle at var(--x) var(--y), rgba(252, 211, 77, 0.95), rgba(245, 158, 11, 0.45) 40%, transparent 70%);
+}
+
+/* Rotating conic "beam" border (element must be positioned) */
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes beam-spin {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+.border-beam::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0 70%,
+    rgba(168, 85, 247, 0.9) 82%,
+    rgba(236, 72, 153, 1) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 6s linear infinite;
+}
+.border-beam-gold::before {
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0 68%,
+    rgba(245, 158, 11, 0.9) 82%,
+    rgba(253, 230, 138, 1) 90%,
+    transparent 100%
+  );
+  animation-duration: 7s;
+}
+
+/* Aurora: slow drifting light blobs */
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-8%, -4%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(8%, 6%, 0) rotate(25deg) scale(1.15);
+  }
+  100% {
+    transform: translate3d(-8%, -4%, 0) rotate(0deg) scale(1);
+  }
+}
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.55;
+  background:
+    radial-gradient(40% 35% at 25% 35%, rgba(139, 92, 246, 0.45), transparent 70%),
+    radial-gradient(35% 30% at 70% 60%, rgba(236, 72, 153, 0.3), transparent 70%),
+    radial-gradient(30% 30% at 55% 20%, rgba(192, 38, 211, 0.25), transparent 70%);
+  animation: aurora-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+.aurora-gold {
+  background:
+    radial-gradient(40% 35% at 30% 40%, rgba(245, 158, 11, 0.32), transparent 70%),
+    radial-gradient(35% 30% at 70% 55%, rgba(139, 92, 246, 0.35), transparent 70%),
+    radial-gradient(28% 28% at 55% 15%, rgba(253, 224, 71, 0.18), transparent 70%);
+}
+
+/* Subtle technical grid behind sections */
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* Button shine sweep */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  bottom: -40%;
+  left: -60%;
+  width: 40%;
+  transform: skewX(-20deg) translateX(0);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.shine:hover::after {
+  transform: skewX(-20deg) translateX(420%);
+}
+
+/* Gold shimmering text */
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+.gold-shimmer {
+  background: linear-gradient(100deg, #f59e0b 0%, #fde68a 30%, #f59e0b 50%, #c084fc 75%, #f59e0b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Outlined display text (marquee second row) */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(216, 180, 254, 0.35);
+  color: transparent;
+}
+
+/* Pulsing status dot */
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.dot-ping::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: ping-soft 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Phone glass reflection sheen */
+.sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.08) 48%, transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora,
+  .border-beam::before,
+  .gold-shimmer,
+  .marquee-track,
+  .float-slow {
+    animation: none !important;
+  }
 }

@@ -22,6 +22,7 @@ export const translations = {
       version: "v0.11.0",
       meta: "Android 8.0+ · Direct APK · Verified Malware-Free",
       scroll: "Scroll to explore",
+      chips: ["NO ADS · EVER", "OFFLINE READY", "4K · HDR"],
     },
     marquee: [
       "AD-FREE 4K STREAMING",
@@ -163,6 +164,7 @@ export const translations = {
     },
     compare: {
       eyebrow: "FREE VS PREMIUM",
+      popular: "MOST POPULAR",
       title: "Pick your experience.",
       free: "Free",
       premium: "Premium",
@@ -282,6 +284,7 @@ export const translations = {
       version: "v0.11.0",
       meta: "Android 8.0+ · APK directo · Verificado libre de malware",
       scroll: "Desliza para explorar",
+      chips: ["SIN ANUNCIOS", "MODO OFFLINE", "4K · HDR"],
     },
     marquee: [
       "STREAMING 4K SIN ANUNCIOS",
@@ -423,6 +426,7 @@ export const translations = {
     },
     compare: {
       eyebrow: "GRATIS VS PREMIUM",
+      popular: "MÁS POPULAR",
       title: "Elige tu experiencia.",
       free: "Gratis",
       premium: "Premium",

@@ -6,8 +6,15 @@ export const Footer = ({ onDownload }) => {
   const { t } = useLang();
   const anchors = ["#features", "#premium", "#roadmap", "#faq"];
   return (
-    <footer data-testid="footer-discretion" className="relative py-16 border-t border-purple-500/10">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <footer data-testid="footer-discretion" className="relative pt-16 pb-10 border-t border-purple-500/10 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute left-1/2 -translate-x-1/2 -bottom-10 font-syne font-extrabold tracking-tight leading-none text-[22vw] text-transparent select-none pointer-events-none whitespace-nowrap"
+        style={{ WebkitTextStroke: "1px rgba(168,85,247,0.12)" }}
+      >
+        VELORA
+      </div>
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-10">
           <div className="max-w-md">
             <div className="flex items-center gap-3">
