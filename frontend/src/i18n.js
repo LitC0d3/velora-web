@@ -19,7 +19,7 @@ export const translations = {
       subtitle:
         "High-definition ad-free streaming, offline downloads, direct creator uploads and exclusive short-form video — in one discreet Android app.",
       cta: "Download Velora APK",
-      version: "v0.10.0",
+      version: "v0.11.0",
       meta: "Android 8.0+ · Direct APK · Verified Malware-Free",
       scroll: "Scroll to explore",
     },
@@ -279,7 +279,7 @@ export const translations = {
       subtitle:
         "Streaming en alta definición sin anuncios, descargas offline, subidas directas de creadores y video corto exclusivo — en una app discreta para Android.",
       cta: "Descargar Velora APK",
-      version: "v0.10.0",
+      version: "v0.11.0",
       meta: "Android 8.0+ · APK directo · Verificado libre de malware",
       scroll: "Desliza para explorar",
     },

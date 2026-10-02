@@ -54,7 +54,7 @@ Create a landing page for the adult-oriented (18+) app "Velora". Page must featu
 
 ## Implemented (2026-10-02) — Logo path fix + real APK registered
 - `Logo.jsx` now uses `${PUBLIC_URL}/velora-logo.png` (absolute `/velora-logo.png` 404'd on GitHub Pages subpath `/velora-web/`).
-- `public/apk/release.json` points to the user's real APK: Supabase URL `.../updates/velora_v0.10.0.apk`, v0.10.0, 25.6 MB, SHA-256 computed. Hero badge version updated to v0.10.0 (i18n.js EN/ES).
+- `public/apk/release.json` points to the user's real APK: Supabase URL `.../updates/velora_v0.11.0.apk`, v0.11.0, SHA-256 computed. Hero badge version updated to v0.11.0 (i18n.js EN/ES).
 - Live site: https://litc0d3.github.io/velora-web/ (repo LitC0d3/velora-web). Workflow no longer uses yarn cache / frozen-lockfile (yarn.lock not committed).
 
 ## Backlog

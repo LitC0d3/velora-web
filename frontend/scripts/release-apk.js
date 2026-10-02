@@ -3,7 +3,7 @@
  * Registra un APK para la landing (modo estático / GitHub Pages).
  *
  * Uso:
- *   node scripts/release-apk.js <ruta/al/velora.apk> [--version 0.10.0] [--url https://.../velora.apk]
+ *   node scripts/release-apk.js <ruta/al/velora.apk> [--version 0.11.0] [--url https://.../velora.apk]
  *
  * - Sin --url: copia el APK a public/apk/velora.apk (límite de GitHub: 100 MB por archivo).
  * - Con --url: no copia nada; el botón de descarga apuntará a esa URL (ideal para GitHub Releases).
@@ -44,7 +44,7 @@ if (!url) {
 
 const manifest = {
   available: true,
-  version: flag("version") || "0.10.0",
+  version: flag("version") || "0.11.0",
   size_bytes: bytes.length,
   sha256,
   url: url || "apk/velora.apk",
